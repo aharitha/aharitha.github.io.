@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace array
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] a = { 1, 2, 3, 4, 5 };
+            int[] b = { 4, 5, 6 };
+            int[] c = b.Intersect(a).ToArray();
+            var x = new[]{ 1, 2, 3, 4, 5 };
+            var y =new[] { 4, 5, 6 };
+            var z=x.Intersect(y).ToArray();
+            var w=x.Except(z).ToArray();
+            var e=y.Except(z).ToArray();
+            var q=w.Union(e).ToArray();
+
+           /* int d = a.(c).ToString();*/
+            Console.WriteLine("result array is:");
+
+        }
+    }
+}
