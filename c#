@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace anagramous
+{
+    class Program
+    {
+       static int Stringlength = 1000;
+ 
+    // Function to check that 
+    // string is k-anagram or not
+    public static bool TAnagrams(string str1, 
+                             string str2, 
+                                      int T)
+    {
+         
+        // If both strings are not of equal
+        // length then return false
+        int n = str1.Length;
+        if (str2.Length != n)
+            return false;
+ 
+        int[] count1 = new int[Stringlength];
+        int[] count2 = new int[Stringlength];
+        int count = 0;
+         
+        // Store the occurrence
+        // of all characters
+        // in a hash_array
+        for (int i = 0; i < n; i++)
+            count1[str1[i] - 'a']++;
+        for (int i = 0; i < n; i++)
+            count2[str2[i] - 'a']++;
+ 
+        // Count number of characters that are
+        // different in both strings
+        for (int i = 0; i < Stringlength; i++)
+            if (count1[i] > count2[i])
+                count = count + Math.Abs(count1[i] - 
+                                         count2[i]);
+ 
+        // Return true if count is
+        // less than or equal to T
+        return (count <= T);
+    }
+ 
+    // Driver code
+    public static void Main()
+    {
+       
+        
+      
+        Console.WriteLine("enter first string :");
+        string str1 = Console.ReadLine(); ;
+       
+        
+       Console.WriteLine("enter second string:");
+        string str2 = Console.ReadLine(); ;
+        Console.WriteLine("enter number of constraints must be 1 to 10 :");
+        int T = Convert.ToInt32(Console.ReadLine());
+        if (TAnagrams(str1, str2, T))
+        {
+            Console.WriteLine("Yes");
+        }
+        else
+        {
+            Console.WriteLine("No");
+        }
+           
+    }
+
+
+        }
+    }
+
+//}
