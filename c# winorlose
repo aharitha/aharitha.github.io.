@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WINLOSE
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter the number of Testcases:");
+            int T = Convert.ToInt32(Console.ReadLine());
+            for (int a= 0; a< T; a++)
+            {
+                int i, n = 0, m = 0;
+                int[] PS = new int[100];
+                int[] VS = new int[100];
+
+                Console.WriteLine("enter the number of Villains and Players :");
+                int VP = Convert.ToInt32(Console.ReadLine());
+                for (i = 0; i < VP; i++)
+                {
+                    // Console.WriteLine(" Strengths of Villains");
+                    Console.Write("Strengths of Villains element - {0} : ", i);
+                    VS[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                for (i = 0; i < VP; i++)
+                {
+                    //Console.WriteLine(" ");
+                    Console.Write("Energy of Players element - {0} : ", i);
+                    PS[i] = Convert.ToInt32(Console.ReadLine());
+                }
+
+                for (int k = 0; k < VP; k++)
+                {
+                    if (PS[k] > VS[k])
+                    {
+                        n = n + 1;
+                    }
+                    else
+                    {
+                        m = m + 1;
+                    }         
+                }
+                if (n > m)
+                {
+                    Console.WriteLine("WIN GAME");
+                }
+                else
+                {
+                    Console.WriteLine("LOSE GAME");
+                }
+            }
+        }
+    }
+}
